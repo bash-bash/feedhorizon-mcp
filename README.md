@@ -1,6 +1,6 @@
 # FeedHorizon MCP server
 
-Let Cursor, Claude, ChatGPT and other AI assistants schedule and publish social media posts on **X (Twitter), LinkedIn, Instagram, Bluesky and Pinterest**.
+Let Cursor, Claude, ChatGPT and other AI assistants schedule and publish social media posts on **X (Twitter), LinkedIn, Instagram, Bluesky, Pinterest and TikTok** (TikTok in beta: private posts until TikTok's review).
 
 FeedHorizon is a social media API and hosted MCP server. EU hosted (Frankfurt), the first 2 connected accounts are free.
 
@@ -20,6 +20,31 @@ FeedHorizon is a social media API and hosted MCP server. EU hosted (Frankfurt), 
 - Search the FeedHorizon docs
 
 The assistant can do nothing your account could not do through the REST API: same checks, limits and permissions.
+
+## Tools
+
+| Tool | What it does |
+| --- | --- |
+| `get_context` | Organization, permissions, profiles with time zone and local time, queue state and connected accounts. Called first. |
+| `get_platform_rules` | Text length, media count and file types per platform |
+| `search_docs` | Searches the FeedHorizon docs |
+| `list_posts` | Lists posts, or a calendar range, with filters |
+| `get_post` | The full post with per-account status, links and errors |
+| `validate_post` | Checks a post against every platform without saving it |
+| `get_queue` | A profile's queue slots and which posts hold them |
+| `list_pinterest_boards` | The boards of a Pinterest account |
+| `get_tiktok_creator` | Creator name and allowed privacy and interaction settings of a TikTok account |
+| `create_post` | Saves a draft, schedules a post or adds it to the queue |
+| `update_post` | Changes text, accounts, media or time of a post |
+| `publish_post_now` | Publishes a post immediately (asks for confirmation) |
+| `cancel_post` | Takes a post off the schedule, keeping it as a draft |
+| `retry_post` | Publishes the failed accounts of a post again (asks for confirmation) |
+| `duplicate_post` | Copies a post as a new draft |
+| `delete_post` | Deletes a post in FeedHorizon (asks for confirmation) |
+| `set_queue_slots` | Replaces a profile's weekly queue slots |
+| `import_media_from_url` | Stores an image, video or PDF from a public URL |
+| `create_upload_link` | A link to upload a local file |
+| `create_connect_link` | A link to connect a social account to a profile |
 
 ## Cursor
 
